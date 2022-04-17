@@ -228,7 +228,16 @@ nav a:nth-of-type(1) {
   width: 74%;
 }
 
-.arrow_left, .arrow_right {
+.arrow_left{
+  width: 52px;
+  margin-top: 15.7rem;
+  height: 52px;
+  border: 2px solid #FDDCC4;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.arrow_right {
   width: 52px;
   margin-top: 15.7rem;
   height: 52px;
@@ -464,6 +473,8 @@ nav a:nth-of-type(1) {
 .donation_grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
+  grid-template-areas: "dog donation";
+
 }
 
 .donation_grid h3 {
@@ -557,6 +568,12 @@ footer {
 .footer_grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr 1fr;
+}
+
+.footer_grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-areas: "communication location footerpet";
 }
 
 .footer_first_grid {
@@ -838,83 +855,77 @@ footer {
   }
 
   .flex_item_up_1 img {
-    margin-left: 6.5rem;
+    margin-left: 6.25rem;
   }
 
   .flex_item_up_1 h4 {
-    margin-left: 5.4rem;
+    margin-left: 5.1875rem;
   }
 
   .flex_item_up_2 img {
-    margin-left: 10.2rem;
+    margin-left: 9.8125rem;
   }
 
   .flex_item_up_2 h4 {
-    margin-left: 7.5rem;
+    margin-left: 7.125rem;
   }
 
   .flex_item_up_3 img {
-    margin-left: 7.45rem;
+    margin-left: 7.75rem;
   }
 
   .flex_item_up_3 h4 {
-    margin-left: 7.56rem;
+    margin-left: 7.625rem;
   }
 
   .flex_item_up_4 img {
-    margin-left: 10.4rem;
+    margin-top: 3.5625rem;
+    margin-left: 5.875rem;
   }
 
   .flex_item_up_4 h4 {
-    margin-left: 7.56rem;
+    margin-left: 3rem;
   }
 
   .flex_item_up_5 img {
-    margin-left: 9.5rem;
+    margin-left: 8.5rem;
   }
 
   .flex_item_up_5 h4 {
-    margin-left: 7.4rem;
+    margin-left: 6.375rem;
   }
 
   .flex_item_down_1 img {
-    margin-top: 3.6rem;
-    margin-left: 11.5rem;
+    margin-left: 9.3125rem;
   }
 
   .flex_item_down_1 h4 {
-    margin-top: 1.7rem;
-    margin-left: 10.7rem;
+    margin-left: 8.375rem;
   }
 
   .flex_item_down_2 img {
-    margin-top: 3rem;
-    margin-left: 8.7rem;
+    margin-left: 5.875rem;
+    margin-top: 3.5rem;
   }
 
   .flex_item_down_2 h4 {
-    margin-top: 1.7rem;
-    margin-left: 7.5rem;
+    margin-left: 4.625rem;
   }
 
   .flex_item_down_3 img {
-    margin-top: 3rem;
-    margin-left: 10.7rem;
+    margin-left: 9.3125rem;
   }
 
   .flex_item_down_3 h4 {
-    margin-top: 1.7rem;
-    margin-left: 7.5rem;
+    margin-left: 6rem;
   }
 
   .flex_item_down_4 img {
-    margin-top: 3rem;
-    margin-left: 10.1rem;
+    margin-left: 7.375rem;
   }
 
   .flex_item_down_4 h4 {
-    margin-top: 1.7rem;
-    margin-left: 7.4rem;
+    margin-left: 4.75rem;
   }
 
   /* ===================================================================== */
@@ -1073,7 +1084,7 @@ footer {
   .footer_third_grid img {
     position: relative;
     top: 0.875rem;
-    left: 12.9375rem;
+    left: 12.755rem;
   }
 }
 
@@ -1219,19 +1230,21 @@ nav{
   padding-top: 2.625rem;
 }
 
-.friends_grid {
-  grid-template-columns: 0.1fr 1fr 1fr 0.1fr;
-  grid-template-rows: 1fr;
-  justify-items: center;
+.arrow_left{
+  grid-area:arrow-left;
+  margin-top: 52px;
+  margin-left: 16px;
 }
 
-.third_pet{
-  display: none;
+.arrow_right{
+  grid-area:arrow-right;
+  margin-top: 52px;
+  margin-right: 18px;
 }
 
-
-.first_pet, .second_pet{
+.first_pet{
   width: 270px;
+  grid-area:card-pet
 }
 
 
@@ -1240,43 +1253,42 @@ nav{
   margin-right: 0.5rem;
 }
 
+
+.friends_grid {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.1fr;
+  grid-template-areas: "card-pet card-pet"
+                       "arrow-left arrow-right";
+  justify-items: center;
+}
+
 .second_pet{
-  margin-left:0.625rem;
+  display: none;
+}
+
+.third_pet{
+  display: none;
 }
 
 
-.first_pet img, .second_pet img{
-  margin-top: 3.7rem;
+
+
+.first_pet img{
+  margin-top: 2.5625rem;
+  margin-left: 0.25rem;
 }
 
-.first_pet p, .second_pet p{
-  font: normal 400 20px Georgia;
-  color: #545454;
-  line-height: 22.72px;
-  text-align: center;
-  letter-spacing: 0.06em;
-  padding-top: 1.6rem;
+.first_pet p{
+  padding-left: 0.4375rem;
 }
 
-.first_pet a, .second_pet a{
-  width: 69.27%;
-  padding-top: 17px;
-  padding-bottom: 11px;
-  display: block;
-  text-align: center;
-  margin: 0px auto;
-  margin-top: 1.8125rem;
-  font: normal 400 17px Georgia;
-  letter-spacing: 1px;
-  color: #292929;
-  text-decoration: none;
-  outline: none;
-  border: 2px solid #F1CDB3;
-  border-radius: 100px;
+.first_pet a{
+  margin-left:2.8125rem;
 }
 
 .button_pet {
-  width: 36.72%;
+  width: 86.67%;
+  margin-top:2.5625rem;
 }
 
 /* ===================================================================== */
@@ -1293,19 +1305,26 @@ nav{
 }
 
 .help_container h3 {
-  width: 47.5%;
+  width: 100%;
+  font: normal 400 25px Georgia;
+  line-height: 32.5px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 42px
 }
 
 .help_flex {
   display: flex;
   flex-wrap: wrap;
   margin: 0px auto;
-  margin-top: 3.7rem;
-  align-items: flex-end;
+  margin-top: 1.75rem;
+  align-items: flex-start;
 }
 
 .help_flex h4 {
-  font: normal 400 20px Georgia;
+  font: normal 400 15px Georgia;
   line-height: 23px;
   color: #545454;
   text-align: center;
@@ -1314,83 +1333,111 @@ nav{
 }
 
 .flex_item_up_1 img {
-  margin-left: 6.5rem;
+  width:39.88px;
+  height:50px;
+  margin-left: 3.125rem;
+  margin-top: 12px;
 }
 
 .flex_item_up_1 h4 {
-  margin-left: 5.4rem;
+  margin-top: 13px;
+  margin-left: 39px;
 }
 
 .flex_item_up_2 img {
-  margin-left: 10.2rem;
+  width:49.96px;
+  height:50px;
+  margin-left: 6.4375rem;
+  margin-top: 12px;
 }
 
 .flex_item_up_2 h4 {
-  margin-left: 7.5rem;
+  margin-top: 13px;
+  margin-left: 73px;
 }
 
 .flex_item_up_3 img {
-  margin-left: 7.45rem;
+  width:50px;
+  height:50px;
+  margin-top: 29px;
+  margin-left: 45px;
 }
 
 .flex_item_up_3 h4 {
-  margin-left: 7.56rem;
+  margin-top: 13px;
+  margin-left: 45px;
 }
 
 .flex_item_up_4 img {
-  margin-left: 10.4rem;
+  width:50px;
+  height:47.35px;
+  margin-top: 30px;
+  margin-left: 109px;
 }
 
 .flex_item_up_4 h4 {
-  margin-left: 7.56rem;
+  margin-top: 13px;
+  margin-left: 78px;
 }
 
 .flex_item_up_5 img {
-  margin-left: 9.5rem;
+  width:29.09px;
+  height:50px;
+  margin-left: 54px;
+  margin-top: 26px;
 }
 
 .flex_item_up_5 h4 {
-  margin-left: 7.4rem;
+  margin-top: 14px;
+  margin-left: 32px;
 }
 
 .flex_item_down_1 img {
-  margin-top: 3.6rem;
-  margin-left: 11.5rem;
+  width:50px;
+  height:45.13px;
+  margin-top: 30px;
+  margin-left: 97px;
 }
 
 .flex_item_down_1 h4 {
-  margin-top: 1.7rem;
-  margin-left: 10.7rem;
+  margin-top: 15px;
+  margin-left: 89px;
 }
 
 .flex_item_down_2 img {
-  margin-top: 3rem;
-  margin-left: 8.7rem;
+  width:50px;
+  height:50px;
+  margin-top: 25px;
+  margin-left: 46px;
 }
 
 .flex_item_down_2 h4 {
-  margin-top: 1.7rem;
-  margin-left: 7.5rem;
+  margin-top: 15px;
+  margin-left: 32px;
 }
 
 .flex_item_down_3 img {
-  margin-top: 3rem;
-  margin-left: 10.7rem;
+  width:50px;
+  height:43.7px;
+  margin-left: 97px;
+  margin-top: 30px;
 }
 
 .flex_item_down_3 h4 {
-  margin-top: 1.7rem;
-  margin-left: 7.5rem;
+  margin-top: 16px;
+  margin-left: 61px;
 }
 
 .flex_item_down_4 img {
-  margin-top: 3rem;
-  margin-left: 10.1rem;
+  width:46.91px;
+  height:50px;
+  margin-top: 26px;
+  margin-left: 47px;
 }
 
 .flex_item_down_4 h4 {
-  margin-top: 1.7rem;
-  margin-left: 7.4rem;
+  margin-top: 13px;
+  margin-left: 16px;
 }
 
 /* ===================================================================== */
@@ -1425,36 +1472,56 @@ nav{
   width: 100%;
   padding-top: 0rem;
   margin-left:0rem;
+  padding: 41px 44px 0 44px;
+  text-align: center;
   font: normal 400 25px Georgia;
   line-height: 32.5px;
 }
 
 .donation_grid h5 {
-  width: 43.36%;
-  margin-left: 10.1875rem;
-  padding-top: 1.2rem;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 0.04em;
+  margin-left: 0rem;
+  padding-top:23px;
+  margin-left: 4px;
+  margin-right: 4px
 }
 
 .donation_grid img {
-  top: 0rem;
-  left: 0rem;
+  top: 44px;
+  left: 20px;
   width:260px;
   height: 135.2px;
 }
 
 .credit_card {
-  width: 49.29%;
+  margin: 0px auto;
+  margin-right: 0;
+  width: 93.67%;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   margin-top: 1.2rem;
-  margin-left:10.1875rem;
+  margin-left: 0.625rem;
   justify-content: space-evenly;
+  align-items: center;
+}
+
+.credit_card img{
+  width:30px;
+  height: 23px;
+  
+}
+
+.credit_card a{
+  font-size: 15px;
 }
 
 .donation_p {
+  text-align: justify;
   margin-top: 1.1rem;
-  width: 53.67%;
-  margin-left:10.1875rem;
+  width: 93.33%;
+  margin-left:0rem;
 }
 
 /* ======================================================================= */
@@ -1472,6 +1539,21 @@ footer {
   margin: 0px auto;
 }
 
+.footer_first_grid {
+  margin-top: 3.5rem;
+  grid-area:communication
+}
+
+.footer_second_grid {
+  margin-top: 3.5rem;
+  grid-area:location;
+}
+
+
+.footer_third_grid{
+  grid-area: footerpet;
+}
+
 .footer_container {
   width: 93.75%;
   margin: 0px auto;
@@ -1480,28 +1562,32 @@ footer {
 
 .footer_grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "communication location"
-                        "footerpet footerpet";
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 0.9fr 1fr;
+  grid-template-areas: "communication"
+                        "location"
+                        "footerpet";
 }
 
 .footer_first_grid {
-  margin-left:2.125rem;
+  margin-left:0rem;
   margin-top: 1.875rem;
 }
 
 .footer_grid h3 {
+  margin: 0px auto;
   width: 87.8755%;
-  font: normal 400 35px Georgia;
-  line-height: 45.5px;
+  font: normal 400 25px Georgia;
+  line-height: 32.5px;
   color: #FFFFFF;
   letter-spacing: 0.06em;
+  text-align: center;
 }
 
 .footer_mail_flex {
   display: flex;
   margin-top: 2.59rem;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -1517,6 +1603,7 @@ footer {
   margin-top: 2.1rem;
   gap: 1.2rem;
   align-items: center;
+  justify-content: center;
 }
 
 .footer_phone_flex a {
@@ -1527,19 +1614,27 @@ footer {
 }
 
 .footer_second_grid {
-  margin-left:1.1875rem;
-  margin-top: 1.9375rem;
+  margin-left:0rem;
+  margin-top: 0.3125rem;
 }
 
 .footer_location_flex {
   display: flex;
-  margin-top: 1.875rem;
+  margin-top: 0rem;
   gap: 1.1rem;
   align-items: center;
 }
 
+.footer_1{
+  margin-top: 2.625rem;
+}
+
+.footer_2{
+  margin-top: 2.25rem;
+}
+
 .location_link {
-  width: 77.62%;
+  width: 86.09%;
 }
 
 .footer_location_flex a {
@@ -1551,9 +1646,11 @@ footer {
 }
 
 .footer_third_grid img {
+  width:260px;
+  height: 269px;
   position: relative;
-  top: 0.875rem;
-  left: 12.9375rem;
+  left: 20px;
+  top: 22px 
 }
 
 }
