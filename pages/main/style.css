@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+html {
+    width:100vw;
+    overflow-x:hidden;
+}
+
 .wrapper {
   width: 100%;
 }
