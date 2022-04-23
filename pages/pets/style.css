@@ -11,6 +11,7 @@ html {
   overflow-x:hidden;
 }
 
+
 .header {
   width: 1280px;
   height: 120px;
@@ -18,6 +19,8 @@ html {
   background-color: #FFFFFF;
   top: 0;
   margin: 0px auto;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .header_container {
@@ -27,6 +30,10 @@ html {
   align-items: center;
   margin: 0px auto;
   padding-top: 1.875rem;
+}
+
+.burger_menu{
+  display: none;
 }
 
 .logo {
@@ -51,6 +58,27 @@ html {
 
 nav {
   margin-bottom: 0.3125rem;
+}
+
+.nav__toggle{
+  position: absolute;
+    cursor: pointer;
+    margin: 0rem 1rem;
+    right: 0;
+    display: none;
+}
+
+svg {
+  width: 1.875rem;
+  fill: black;
+}
+
+.close {
+  display: none;
+}
+
+.nav__checkbox{
+  display: none;
 }
 
 nav a {
@@ -488,12 +516,87 @@ footer {
 
 @media (min-width: 320px) and (max-width: 767px) {
 
+  .nav__toggle{
+    display: block;
+    top: 43px;
+    left: 220px
+  }
+
   .header {
     width: 320px;
     height: 120px;
   }
 
-  nav{
+  .open-menu{
+  transform: rotate(-90deg);
+  transition-duration:0.5s;
+}
+
+.close-menu{
+  transform: rotate(0deg);
+  transition-duration:0.5s;
+}
+
+.burger_menu{
+  width: 320px;
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  left: 322px;
+  background-color: white;
+  padding-top: 248px;
+}
+
+.burger_links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  gap:1rem;
+}
+
+@keyframes move-left-menu {
+  from {left: 322px;}
+  to {left: 0px;}
+}
+
+.transition-left-menu {
+  animation-name: move-left-menu;
+  animation-duration: 1s;
+}
+
+@keyframes move-right-menu {
+  from {left: 0px;}
+  to {left: 322px;}
+}
+
+.transition-right-menu {
+  animation-name: move-right-menu;
+  animation-duration: 1s;
+}
+
+
+
+.burger_links a{
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 160%;
+  color: #545454;
+  text-decoration: none;
+}
+
+
+.burger_links a:nth-of-type(2) {
+  border-bottom: 0.2rem solid #F1CDB3;
+}
+
+.burger_links a:hover{
+  color: #FAFAFA;
+}
+
+  nav a{
     display: none;
   }
 

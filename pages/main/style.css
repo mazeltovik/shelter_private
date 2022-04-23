@@ -20,12 +20,15 @@ html {
   background-image: url("../../assets/images/start-screen-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 .header {
   width: 1280px;
   max-height: 908px;
   margin: 0px auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .header_container {
@@ -35,6 +38,7 @@ html {
   align-items: center;
   margin: 0px auto;
   padding-top: 3.75rem;
+  position: relative;
 }
 
 .logo h1 {
@@ -55,6 +59,27 @@ html {
 
 nav {
   margin-bottom: 0.3125rem;
+}
+
+.nav__toggle{
+  position: absolute;
+    cursor: pointer;
+    margin: 0rem 1rem;
+    right: 0;
+    display: none;
+}
+
+svg {
+  width: 1.875rem;
+  fill: #F1CDB3;
+}
+
+.close {
+  display: none;
+}
+
+.nav__checkbox{
+  display: none;
 }
 
 nav a {
@@ -81,6 +106,10 @@ nav a:nth-of-type(3) {
 
 nav a:nth-of-type(1) {
   border-bottom: 0.2rem solid #F1CDB3;
+}
+
+.burger_menu{
+  display: none;
 }
 
 .header_info {
@@ -1102,6 +1131,85 @@ footer {
     overflow-x:hidden;
 } */
 
+.nav__toggle{
+  display: block;
+  top: 43px;
+  left: 212px
+}
+
+.open-menu{
+  transform: rotate(-90deg);
+  transition-duration:0.5s;
+}
+
+.close-menu{
+  transform: rotate(0deg);
+  transition-duration:0.5s;
+}
+
+.burger_menu{
+  width: 320px;
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  left: 322px;
+  background-color: #292929;
+  padding-top: 248px;
+}
+
+.burger_links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  gap:1rem;
+}
+
+@keyframes move-left-menu {
+  from {left: 322px;}
+  to {left: 0px;}
+}
+
+.transition-left-menu {
+  animation-name: move-left-menu;
+  animation-duration: 1s;
+}
+
+@keyframes move-right-menu {
+  from {left: 0px;}
+  to {left: 322px;}
+}
+
+.transition-right-menu {
+  animation-name: move-right-menu;
+  animation-duration: 1s;
+}
+
+
+
+.burger_links a{
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 160%;
+  color: #CDCDCD;
+  text-decoration: none;
+}
+
+
+.burger_links a:nth-of-type(1) {
+  border-bottom: 0.2rem solid #F1CDB3;
+}
+
+.burger_links a:hover{
+  color: #FAFAFA;
+}
+
+nav a{
+  display: none;
+}
+
 
 .header_wrapper {
   background-image: url("../../assets/images/start-screen-gradient-background_mobile.png");
@@ -1118,9 +1226,7 @@ footer {
   padding-top: 1.9rem;
 }
 
-nav{
-  display: none;
-}
+
 
 .header_info {
   width: 93.75%;

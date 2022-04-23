@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href = 'style.css' type='text/css' rel = 'stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap" rel="stylesheet">
     <title>Our Pets</title>
 </head>
 <body>
@@ -14,12 +16,26 @@
                     <h1>Cozy House</h1>
                     <p>Shelter for pets in Boston</p>
                 </div>
-                <nav>
-                    <a href="../../pages/main/index.html">About the shelter</a>
+                <nav class = 'nav'>
+                    <input type="checkbox" id="nav__checkbox" class="nav__checkbox">
+                    <label for="nav__checkbox" class="nav__toggle">
+                        <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+                            <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+                        </svg>
+                    </label>
+                    <a href="../main/index.html">About the shelter</a>
                     <a href="#">Our pets</a>
                     <a href="../../pages/main/index.html#help">Help the shelter</a>
                     <a href="#footer">Contacts</a>
                 </nav>
+            </div>
+            <div class = 'burger_menu'>
+                <div class = 'burger_links'>
+                    <a href="../main/index.html">About the shelter</a>
+                    <a href="#">Our pets</a>
+                    <a href="../../pages/main/index.html#help">Help the shelter</a>
+                    <a href="#footer">Contacts</a>
+                </div>
             </div>
         </header>
         <div class = 'pets_wrapper'>
