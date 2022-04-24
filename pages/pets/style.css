@@ -339,7 +339,7 @@ nav a:nth-of-type(2) {
 }
 
 
-.btn_left:hover{
+.btn_pag_left:hover{
   cursor: pointer;
   background-color: #FDDCC4;
   transition: 0.1s;
@@ -690,6 +690,7 @@ footer {
   display: flex;
   background-color: #FAFAFA;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 .modal_img{

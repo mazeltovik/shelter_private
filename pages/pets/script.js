@@ -210,6 +210,17 @@ let state = {
 };
 desktopPets.unshift(0);
 
+
+if(screen.width>=768 && screen.width<=1280){
+    desktopPets.push(desktopPets[2]);
+}
+
+if(screen.width>=320 && screen.width<=767){
+    for(let i = 1;i<10;i++){
+        desktopPets.push(desktopPets[i].reverse());
+    }
+}
+
 function fillPage(page){
     for(let i = 0;i<PETS_GRID.length;i++){
         PETS_GRID[i].id = desktopPets[page][i].id
@@ -227,7 +238,8 @@ const btnFirst = document.querySelector('.btn_pag_left_double');
 const pageNum = document.querySelector('.pag_page');
 
 function nextPage(){
-    if(state.page>=5){
+    if(state.page>=6 && screen.width>1280){
+        console.log(desktopPets)
         btnNext.removeEventListener('click',nextPage);
         btnNext.children[0].classList.add('disable_arrow');
         btnNext.classList.remove('btn_pag_right');
@@ -236,42 +248,114 @@ function nextPage(){
         btnLast.classList.add('disable');
         btnLast.children[0].classList.add('disable_arrow');
     }
-    state.page+=1;
-    fillPage(state.page);
-    pageNum.children[0].textContent = state.page;
+    else if(state.page>=8 && (screen.width<=1280 && screen.width>=768)){
+        btnNext.removeEventListener('click',nextPage);
+        btnNext.children[0].classList.add('disable_arrow');
+        btnNext.classList.remove('btn_pag_right');
+        btnNext.classList.add('disable');
+        btnLast.classList.remove('btn_pag_rigth_double');
+        btnLast.classList.add('disable');
+        btnLast.children[0].classList.add('disable_arrow');
+
+    }
+    else if(state.page>=16 && (screen.width>=320 && screen.width<=767)){
+        btnNext.removeEventListener('click',nextPage);
+        btnNext.children[0].classList.add('disable_arrow');
+        btnNext.classList.remove('btn_pag_right');
+        btnNext.classList.add('disable');
+        btnLast.classList.remove('btn_pag_rigth_double');
+        btnLast.classList.add('disable');
+        btnLast.children[0].classList.add('disable_arrow');
+    }
+    else{
+        state.page+=1;
+        fillPage(state.page);
+        pageNum.children[0].textContent = state.page;
+        btnFirst.classList.remove('disable');
+        btnPrev.classList.remove('disable');
+    }
 }
 
 function lastPage(){
-    state.page = 6;
-    fillPage(state.page);
-    pageNum.children[0].textContent = state.page;
-    btnLast.removeEventListener('click',lastPage);
-    btnNext.removeEventListener('click',nextPage);
-    btnNext.classList.remove('btn_pag_right');
-    btnNext.children[0].classList.add('disable_arrow');
-    btnNext.classList.add('disable');
-    btnLast.classList.remove('btn_pag_rigth_double');
-    btnLast.classList.add('disable');
-    btnLast.children[0].classList.add('disable_arrow');
+    function fillLastPage(){
+        fillPage(state.page);
+        pageNum.children[0].textContent = state.page;
+        btnLast.removeEventListener('click',lastPage);
+        btnNext.removeEventListener('click',nextPage);
+        btnNext.classList.remove('btn_pag_right');
+        btnNext.children[0].classList.add('disable_arrow');
+        btnNext.classList.add('disable');
+        btnLast.classList.remove('btn_pag_rigth_double');
+        btnLast.classList.add('disable');
+        btnLast.children[0].classList.add('disable_arrow');
+        btnPrev.addEventListener('click',prevPage);
+        btnPrev.classList.remove('disable');
+        btnFirst.classList.remove('disable');
+    }
+    if(screen.width>1280){
+        state.page = 6;
+        fillLastPage();
+    }
+    if(screen.width>=768 && screen.width<=1280){
+        state.page = 8;
+        fillLastPage();
+    }
+    if(screen.width>=320 && screen.width<=767){
+        state.page = 16;
+        fillLastPage();
+    }
 }
 
 function prevPage(){
-    if(state.page<=2){
+    if(state.page==1){
         btnPrev.removeEventListener('click',prevPage);
+        btnPrev.classList.add('disable');
+        btnFirst.classList.add('disable');
     }
-    state.page-=1;
-    console.log(state.page);
+    else{
+        btnNext.classList.remove('disable');
+        btnLast.classList.remove('disable');
+        btnLast.classList.add('btn_pag_rigth_double')
+        btnNext.classList.add('btn_pag_right');
+        state.page-=1;
+        fillPage(state.page);
+        pageNum.children[0].textContent = state.page;
+        btnPrev.classList.remove('disable')
+        btnNext.addEventListener('click',nextPage);
+        btnLast.addEventListener('click',lastPage);
+    }
+}
+
+function firstPage(){
+    state.page = 1;
     fillPage(state.page);
     pageNum.children[0].textContent = state.page;
-    btnPrev.classList.remove('disable')
+    btnPrev.addEventListener('click',prevPage);
     btnNext.addEventListener('click',nextPage);
     btnLast.addEventListener('click',lastPage);
+    btnFirst.classList.add('disable');
+    btnPrev.classList.add('disable');
+    btnNext.classList.remove('disable');
+    btnNext.classList.add('btn_pag_right');
+    btnLast.classList.remove('disable');
+    btnLast.classList.add('btn_pag_rigth_double');
+    // btnLast.removeEventListener('click',lastPage);
+    // btnNext.removeEventListener('click',nextPage);
+    // btnNext.classList.remove('btn_pag_right');
+    // btnNext.children[0].classList.add('disable_arrow');
+    // btnNext.classList.add('disable');
+    // btnLast.classList.remove('btn_pag_rigth_double');
+    // btnLast.classList.add('disable');
+    // btnLast.children[0].classList.add('disable_arrow');
+    // btnPrev.addEventListener('click',prevPage);
+    // btnPrev.classList.remove('disable');
 }
+
 
 btnNext.addEventListener('click',nextPage);
 btnLast.addEventListener('click',lastPage);
-btnPrev.addEventListener('click',prevPage)
-
+btnPrev.addEventListener('click',prevPage);
+btnFirst.addEventListener('click',firstPage);
 
 //Popup
 
@@ -337,7 +421,6 @@ MODAL_CLOSE.addEventListener('click',()=>{
 //     PETS_BLOCK.addEventListener('click',addPopUp);
 //     }
 // })
-console.log(pets);
 
 document.querySelectorAll('.pets_grid a').forEach(v=>{
     v.addEventListener('click',(event)=>{
